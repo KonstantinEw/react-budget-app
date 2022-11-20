@@ -24,3 +24,14 @@ export const StyledButton = styled.button`
   border-radius: 10px;
   outline: none;
 `;
+
+export const StyledBudgetInput = styled.input`
+  width: 153px;
+  padding: 0px 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+`;

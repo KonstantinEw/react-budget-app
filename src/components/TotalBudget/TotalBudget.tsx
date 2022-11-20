@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyledButton, TotalBudgetWrapper } from "./styles";
+import { StyledBudgetInput, StyledButton, TotalBudgetWrapper } from "./styles";
 
 export const TotalBudget = () => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -20,7 +20,7 @@ export const TotalBudget = () => {
         </>
       ) : (
         <>
-          <input type="text" placeholder="Enter budget..." />
+          <StyledBudgetInput type="text" placeholder="Enter budget..." />
           <StyledButton onClick={handleSave}>Save</StyledButton>
         </>
       )}
