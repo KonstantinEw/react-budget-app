@@ -7,6 +7,7 @@ export const StyledBudgetRemaining = styled.div`
   border: 1px solid #ccd5ff;
   border-radius: 10px;
   padding: 36px 20px 40px 20px;
+  margin-bottom: 20px;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
