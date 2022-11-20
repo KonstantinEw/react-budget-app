@@ -2,6 +2,7 @@ import { TotalBudget } from "../TotalBudget/TotalBudget";
 import { CustomSelect } from "../Select/CustomSelect";
 import { Title } from "../Title/Title";
 import { TitleWrapper } from "./styles";
+import { BudgetRemaining } from "../BudgetRemaining/BudgetRemaining";
 
 export const Budget = () => {
   return (
@@ -11,6 +12,7 @@ export const Budget = () => {
         <CustomSelect />
       </TitleWrapper>
       <TotalBudget />
+      <BudgetRemaining />
     </div>
   );
 };

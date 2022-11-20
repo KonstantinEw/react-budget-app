@@ -6,6 +6,7 @@ export const TotalBudgetWrapper = styled.div`
   background: #7cc6fe;
   border-radius: 10px;
   padding: 32px 20px 32px 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   font-style: normal;
