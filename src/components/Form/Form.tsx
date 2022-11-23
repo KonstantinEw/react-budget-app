@@ -4,11 +4,11 @@ import { Title } from "../Title/Title";
 
 export const Form = () => {
   return (
-    <div>
+    <form>
       <Title text="Add Expense" />
       <FormInput placeholder="enter name ..." />
       <FormInput placeholder="enter cost ..." />
       <FormSubmit />
-    </div>
+    </form>
   );
 };

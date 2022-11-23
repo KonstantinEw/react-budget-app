@@ -28,6 +28,12 @@ const useExpensesContextValue = () => {
     setNewExpense: (newExpense) => {
       setExpensesContext((ctx) => ({ ...ctx, expenses: [...ctx.expenses, newExpense] }));
     },
+    deleteExpense: (id: string) => {
+      setExpensesContext((ctx) => ({
+        ...ctx,
+        expenses: ctx.expenses.filter((exp) => exp.id! === id),
+      }));
+    },
   }));
   return expensesContext;
 };
