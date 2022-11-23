@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const Global = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 *{
     box-sizing: border-box;
     padding: 0;
@@ -13,11 +14,12 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    font-family: serif;
 }
 `;
 
 export const AppWrapper = styled.div`
-    width: 375px;
-    padding: 30px 20px 53px 20px;
-    background-color:#FFFFFF;
+  width: 375px;
+  padding: 30px 20px 53px 20px;
+  background-color: #ffffff;
 `;

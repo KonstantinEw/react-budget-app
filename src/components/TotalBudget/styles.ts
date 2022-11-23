@@ -35,3 +35,7 @@ export const StyledBudgetInput = styled.input`
     color: rgba(255, 255, 255, 0.6);
   }
 `;
+
+export const StyledParagraph = styled.p`
+  padding-top: 7px;
+`;
