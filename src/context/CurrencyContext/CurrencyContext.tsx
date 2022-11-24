@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { Currency } from "../../config/currency";
 interface ICurrencyOption {
   label: keyof typeof Currency;
@@ -32,6 +32,8 @@ export const useCurrencyContextValue = () => {
   }));
   return currencyContextValue;
 };
+
+export const useCurrencyContext = () => useContext<ICurrencyContext>(CurrencyContext);
 
 export const CurrencyContextProvider = ({ children }: { children: ReactNode }) => {
   return (
