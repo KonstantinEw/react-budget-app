@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledBudgetSpent } from "./style";
 
 export const BudgetSpent = () => {

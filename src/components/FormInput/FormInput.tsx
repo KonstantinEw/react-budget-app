@@ -1,3 +1,5 @@
+import { useForm } from "react-hook-form";
+import { useInput } from "../../hooks/useInput";
 import { StyledFormInput } from "./styles";
 
 interface IProps {
@@ -5,5 +7,9 @@ interface IProps {
 }
 
 export const FormInput = ({ placeholder }: IProps) => {
-  return <StyledFormInput type="text" placeholder={placeholder} />;
+  const { value, onChange } = useInput();
+
+  return (
+    <StyledFormInput type="text" placeholder={placeholder} value={value} onChange={onChange} />
+  );
 };

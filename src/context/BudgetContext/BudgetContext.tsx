@@ -38,7 +38,7 @@ export const useBudgetContextValue = () => {
   return budgetContextValue;
 };
 
-export const useBudgetContext = useContext(BudgetContext);
+export const useBudgetContext = () => useContext<IBudgetContext>(BudgetContext);
 
 export const BudgetContextProvider = ({ children }: { children: ReactNode }) => {
   return (

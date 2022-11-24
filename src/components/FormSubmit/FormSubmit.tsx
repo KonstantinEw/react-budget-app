@@ -1,4 +1,4 @@
-import React from "react";
+import { FormEvent } from "react";
 import { StyledFormSubmit } from "./styles";
 
 export const FormSubmit = () => {

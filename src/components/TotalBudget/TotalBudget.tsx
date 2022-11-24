@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
 import { StyledBudgetInput, StyledButton, StyledParagraph, TotalBudgetWrapper } from "./styles";
 
 export const TotalBudget = () => {
