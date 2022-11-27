@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Currency } from "../../config/currency";
-interface ICurrencyOption {
+export interface ICurrencyOption {
   label: keyof typeof Currency;
   value: Currency;
 }

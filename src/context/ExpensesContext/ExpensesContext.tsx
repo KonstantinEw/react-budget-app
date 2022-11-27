@@ -4,14 +4,17 @@ interface IExpensesContexProps {
   children: ReactNode;
 }
 
-interface IExpense {
+export interface IExpense {
   id: string;
   title: string;
   cost: number;
 }
-interface IExpenseContext {
+export interface IExpenseContext {
   expenses: IExpense[];
+  searchValue: string;
   setNewExpense: (expense: IExpense) => void;
+  deleteExpense: (id: string) => void;
+  searchExpense: (name: string) => void;
 }
 
 export const ExpensesContext = createContext<IExpenseContext>({} as IExpenseContext);
@@ -22,10 +25,17 @@ const useExpensesContextValue = () => {
     setNewExpense: (newExpense) => {
       setExpensesContext((ctx) => ({ ...ctx, expenses: [...ctx.expenses, newExpense] }));
     },
-    deleteExpense: (id: string) => {
+    deleteExpense: (id) => {
       setExpensesContext((ctx) => ({
         ...ctx,
-        expenses: ctx.expenses.filter((exp) => exp.id! === id),
+        expenses: ctx.expenses.filter((exp) => exp.id !== id),
+      }));
+    },
+    searchValue: "",
+    searchExpense: (name) => {
+      setExpensesContext((ctx) => ({
+        ...ctx,
+        searchValue: name.toLowerCase(),
       }));
     },
   }));

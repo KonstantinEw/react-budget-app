@@ -1,22 +1,25 @@
 import { useState } from "react";
+import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
+import { useCurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 import { StyledBudgetOverspending, StyledBudgetRemaining } from "./style";
 
 export const BudgetRemaining = () => {
-  const [isOverspending, setIsOverspending] = useState(false);
-
-  const handleOverspending = () => {
-    setIsOverspending(true);
-  };
+  const { remaining } = useBudgetContext();
+  const { currentCurrency } = useCurrencyContext();
 
   return (
     <>
-      {!isOverspending ? (
+      {remaining >= 0 ? (
         <StyledBudgetRemaining>
-          <p>Remaining: someBudget</p>
+          <p>
+            Remaining: {currentCurrency.value} {remaining}
+          </p>
         </StyledBudgetRemaining>
       ) : (
         <StyledBudgetOverspending>
-          <p>Overspending by someBudget</p>
+          <p>
+            Overspending by {currentCurrency.value} {remaining}
+          </p>
         </StyledBudgetOverspending>
       )}
     </>

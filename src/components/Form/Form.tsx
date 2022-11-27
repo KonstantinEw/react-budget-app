@@ -1,33 +1,43 @@
-import { FormEvent } from "react";
-import { useForm } from "react-hook-form";
-import { FormInput } from "../FormInput/FormInput";
-import { FormSubmit } from "../FormSubmit/FormSubmit";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { v4 } from "uuid";
+import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
+import { useExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
+import { StyledFormInput, StyledFormSubmit } from "./styles";
 import { Title } from "../Title/Title";
 
-export const Form = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm();
+export interface IFormValues {
+  title: string;
+  cost: number;
+}
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+export const Form = () => {
+  const { setNewExpense } = useExpensesContext();
+  const { setRemainingValue, setSpentValue, budget } = useBudgetContext();
+  const { register, handleSubmit, reset } = useForm<IFormValues>({ mode: "onBlur" });
+
+  const onSubmit: SubmitHandler<IFormValues> = ({ title, cost }) => {
+    if (budget > 0) {
+      setNewExpense({ title, cost, id: v4() });
+      setSpentValue(+cost);
+      setRemainingValue();
+      reset();
+    }
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Title text="Add Expense" />
-      <FormInput
-        {...register("name", { required: true, minLength: { value: 4, message: "less than 4" } })}
+      <StyledFormInput
+        {...register("title", { required: true, minLength: { value: 4, message: "less than 4" } })}
         placeholder="enter name ..."
+        type="text"
       />
-      <FormInput
+      <StyledFormInput
         {...register("cost", { required: true, minLength: { value: 2, message: "less than 2" } })}
         placeholder="enter cost ..."
+        type="text"
       />
-      <FormSubmit />
+      <StyledFormSubmit type="submit">Done</StyledFormSubmit>
     </form>
   );
 };

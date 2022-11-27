@@ -5,7 +5,8 @@ interface IBudgetContext {
   budget: number;
   remaining: number;
   setNewBudget: (value: number) => void;
-  setSpentBudgetContextValue: (value: number) => void;
+  setSpentValue: (value: number) => void;
+  setRemainingValue: () => void;
 }
 
 export const BudgetContext = createContext<IBudgetContext>({} as IBudgetContext);
@@ -20,17 +21,17 @@ export const useBudgetContextValue = () => {
       }));
     },
     remaining: 0,
-    setRemainingBudgetContextValue: () => {
+    setRemainingValue: () => {
       setBudgetContextValue((ctx) => ({
         ...ctx,
         remaining: ctx.budget - ctx.spent,
       }));
     },
     spent: 0,
-    setSpentBudgetContextValue: (value) => {
+    setSpentValue: (value) => {
       setBudgetContextValue((ctx) => ({
         ...ctx,
-        spending: ctx.spent + value,
+        spent: ctx.spent + value,
       }));
     },
   }));
