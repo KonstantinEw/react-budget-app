@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
 import { useExpensesContext } from "../../context/ExpensesContext/ExpensesContext";
 import { ExpensesItem } from "../ExpensesItem/ExpensesItem";
+import { StyledPhrase } from "./styles";
 
 export const ExpensesList = () => {
-  const { expenses, searchValue } = useExpensesContext();
-  const [, setSearchExpenses] = useState(expenses);
-  useEffect(() => {
-    setSearchExpenses(expenses.filter((exp) => exp.title.toLowerCase().includes(searchValue)));
-  }, [searchValue, expenses]);
+  const { expenses } = useExpensesContext();
+
+  if (!expenses.length) return <StyledPhrase>Oooops 🙈</StyledPhrase>;
   return (
     <ul>
       {expenses.map(({ id, title, cost }) => (

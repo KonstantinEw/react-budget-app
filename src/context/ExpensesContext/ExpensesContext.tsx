@@ -14,7 +14,7 @@ export interface IExpenseContext {
   searchValue: string;
   setNewExpense: (expense: IExpense) => void;
   deleteExpense: (id: string) => void;
-  searchExpense: (name: string) => void;
+  searchExpense: (title: string) => void;
 }
 
 export const ExpensesContext = createContext<IExpenseContext>({} as IExpenseContext);
@@ -32,10 +32,10 @@ const useExpensesContextValue = () => {
       }));
     },
     searchValue: "",
-    searchExpense: (name) => {
+    searchExpense: (title) => {
       setExpensesContext((ctx) => ({
         ...ctx,
-        searchValue: name.toLowerCase(),
+        searchValue: title.toLowerCase(),
       }));
     },
   }));

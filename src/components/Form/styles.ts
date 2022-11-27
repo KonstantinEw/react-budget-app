@@ -23,3 +23,9 @@ export const StyledFormSubmit = styled.button`
   border-radius: 10px;
   color: #ffffff;
 `;
+
+export const ErrorSpan = styled.span`
+  display: block;
+  color: red;
+  margin-bottom: 10px;
+`;
